@@ -14,9 +14,8 @@ void apply_dijkstra(vector<vector<pi>> &graph, int src, vector<int> &dis) {
     while (pq.size()) {
         pair<int, int> p = pq.top();
         pq.pop();
-        if (p.first == INT_MAX) {
-            continue;
-        }
+        // if someother node has already updated the dis[u]
+        if(dis[p.second]<p.first) continue;
         for (auto a : graph[p.second]) {
             if (dis[a.first] > dis[p.second] + a.second) {
                 dis[a.first] = dis[p.second] + a.second;
