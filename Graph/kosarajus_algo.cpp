@@ -60,6 +60,7 @@ int cnt_sccs(int n, vector<vector<int>> &g) {
     while (st.size()) {
         int u = st.top(); st.pop();
         if (!vis[u]) {
+            //will completely traverse the whole scc in one go
             ++cnt;
             dfs2(rg, u, vis);
         }
