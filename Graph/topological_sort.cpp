@@ -66,18 +66,15 @@ void topo_sort_bfs(vector<vector<int>> &graph, int n) {
     cout << "Topological sorting by bfs" << endl;
 
     while (Q.size()) {
-        int q = Q.size();
-        while (q--) {
-            int i = Q.front();
-            Q.pop();
-            cout << i << " ";
-            for (int j : graph[i]) {
-                indegree[j]--;
-                if (!indegree[j]) {
-                    Q.push(j);
-                }
+        int i = Q.front();
+        Q.pop();
+        cout << i << " ";
+        for (int j : graph[i]) {
+            indegree[j]--;
+            if (!indegree[j]) {
+                Q.push(j);
             }
-        }
+         }
     }
 }
 
